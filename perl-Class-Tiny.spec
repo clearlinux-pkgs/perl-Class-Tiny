@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Tiny
 Version  : 1.006
-Release  : 2
+Release  : 3
 URL      : http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
 Summary  : 'Minimalist class construction'
