@@ -4,10 +4,10 @@
 #
 Name     : perl-Class-Tiny
 Version  : 1.006
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
-Summary  : 'Minimalist class construction'
+Summary  : Minimalist class construction
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: perl-Class-Tiny-license = %{version}-%{release}
@@ -25,6 +25,7 @@ In Person.pm:
 Summary: dev components for the perl-Class-Tiny package.
 Group: Development
 Provides: perl-Class-Tiny-devel = %{version}-%{release}
+Requires: perl-Class-Tiny = %{version}-%{release}
 
 %description dev
 dev components for the perl-Class-Tiny package.
