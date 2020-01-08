@@ -4,13 +4,14 @@
 #
 Name     : perl-Class-Tiny
 Version  : 1.006
-Release  : 17
+Release  : 18
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
-Summary  : Minimalist class construction
+Summary  : 'Minimalist class construction'
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: perl-Class-Tiny-license = %{version}-%{release}
+Requires: perl-Class-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -39,14 +40,24 @@ Group: Default
 license components for the perl-Class-Tiny package.
 
 
+%package perl
+Summary: perl components for the perl-Class-Tiny package.
+Group: Default
+Requires: perl-Class-Tiny = %{version}-%{release}
+
+%description perl
+perl components for the perl-Class-Tiny package.
+
+
 %prep
 %setup -q -n Class-Tiny-1.006
+cd %{_builddir}/Class-Tiny-1.006
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -56,7 +67,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -65,7 +76,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Class-Tiny
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Class-Tiny/LICENSE
+cp %{_builddir}/Class-Tiny-1.006/LICENSE %{buildroot}/usr/share/package-licenses/perl-Class-Tiny/e188c4892bc1fbfced62c2299a2a24fd21098d81
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -78,7 +89,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Class/Tiny.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -86,4 +96,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Class-Tiny/LICENSE
+/usr/share/package-licenses/perl-Class-Tiny/e188c4892bc1fbfced62c2299a2a24fd21098d81
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Class/Tiny.pm
