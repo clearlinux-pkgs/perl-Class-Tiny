@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Tiny
 Version  : 1.008
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.008.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.008.tar.gz
 Summary  : 'Minimalist class construction'
@@ -100,4 +100,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Class/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Class/Tiny.pm
